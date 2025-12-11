@@ -1,20 +1,20 @@
-## Features
-* Supports multiple upscaling backends (XeSS, FSR 2.1.2, FSR 2.2.1, FSR 3.1 and DLSS)
-* Experimental support for frame generation (OptiFG by FSR) with version 0.7.0 and above
-* Supports DLSS 3.7 and above (check [installation instructions](#install-as-non-nvngx))
-* Supports DLSS-D (Ray Reconstruction) on Nvidia cards (Supports changing presets and using OptiScaler enhancements)
-* Ability to modify DLSS/DLSS-D presets on the fly
-* Supports XeSS v1.3.x's Ultra Performance, NativeAA modes (**Not using default XeSS 1.3.x scaling ratios, rather the old ones**) 
-* An [in-game menu](https://github.com/optiscaler/OptiScaler/blob/master/Config.md) for tuning and saving settings on the fly (Shortcut key is **INSERT**)
-* Full integration with [DLSS Enabler](https://www.nexusmods.com/site/mods/757) for DLSS-FG support
-* **RCAS** support with **MAS** (Motion Adaptive Sharpening) for all Dx12 & Dx11 upscalers
-* **Output Scaling** option (0.5x to 3.0x) for backends running on Dx12 & Dx11
-* Supports DXGI spoofing (when running as `dxgi.dll`) as Nvidia GPUs (with XeSS detection to enable XMX on Intel Arc cards)
-* Supports Vulkan spoofing (needs to be enabled from `nvngi.ini`) as Nvidia GPUs (not working for Doom Eternal)
-* Supports loading specific `nvapi64.dll` file (when running in non-nvngx mode)
-* Supports loading specific `nvngx_dlss.dll` file (when running in non-nvngx mode)
-* Supports overriding scaling ratios
-* Supports overriding DRS range
+## Caractéristiques
+* Prise en charge de plusieurs systèmes de mise à l'échelle (XeSS, FSR 2.1.2, FSR 2.2.1, FSR 3.1 et DLSS)
+* Prise en charge expérimentale de la génération d'image (OptiFG par FSR) à partir de la version 0.7.0
+* Prise en charge du DLSS 3.7 et versions ultérieures (consultez les [instructions d'installations](#intaller-en-tant-que-non-nvngx))
+* Prise en charge du DLSS-D (Reconstruction de faisceau) sur les cartes graphique Nvidia (Prise en charge du changement de préréglages et des améliorations apportés par OptiScaler)
+* Permet la modifications à la volée des préréglages du DLSS et du DLSS-D
+* Prise en charge du XeSS v1.3.x's en Ultra Performance et en mode Résolution native (**En utilisant les anciens ratios du XeSS 1.3.x scaling ratios, pas les nouveaux**) 
+* Un [menu en jeu](https://github.com/optiscaler/OptiScaler/blob/master/Config.md) est disponible pour modifier et sauvegarder les paramètres à la volée (Raccourci clavier étant **INSERT**)
+* Intégration complète avec [DLSS Enabler](https://www.nexusmods.com/site/mods/757) pour une compatibilité avec la génération d'image DLSS
+* Prise en charge du **RCAS** avec la (Netteté adaptative au mouvement) **MAS** pour tous les algorithmes de mise à l'échelle qui supporte le Dx12 ou Dx11 (temporels ou spatiaux)
+* Une option **Mise à l'échelle de la sortie** est disponible (0.5x jusqu'à 3.0x) pour les moteurs de rendu basé sur le DX11 et le DX12
+* Prise en charge de la falsification du DXGI (lorqu'utilisé en tant que `dxgi.dll`) en tant que cartes graphique Nvidia (avec détéction XeSS pour permettre l'utilisation du XMX sur les cartes graphique Arc de Intel)
+* Prise en charge de la falsification de Vulkan (lorsqu'activé depuis le `nvngi.ini`) en tant que cartes graphique Nvidia (ne fonctionne pas sur Doom Eternal)
+* Prise en charge du chargement du fichier `nvapi64.dll` spécifique (lorsqu'untilisé en mode non-nvngx)
+* Prise en charge du chargement du fichier `nvngx_dlss.dll` spécifique (lorsqu'untilisé en mode non-nvngx)
+* Prise en charge de redéfinition des ratios de mise à l'échelle
+* Prise en charge la redéfinition de la plage DRS
 * Autofixes for [colored lights](https://github.com/optiscaler/OptiScaler/blob/master/Config.md#resource-barriers-dx12-only) on Unreal Engine & AMD graphics cards 
 * Autofixes for [missing exposure texture](https://github.com/optiscaler/OptiScaler/blob/master/Config.md#init-flags) information
 * Ability to modify [Mipmap Lod Bias](https://github.com/optiscaler/OptiScaler/blob/master/Config.md#mipmap-lod-bias-override-dx12-only) game value
