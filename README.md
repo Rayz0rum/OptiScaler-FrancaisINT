@@ -88,7 +88,7 @@
 > * Pressing **`Page Up`** shows the performance stats overlay in the top left, and can be cycled between different modes with **`Page Down`** (_keybinds customisable in the overlay_).  
 > * If Opti overlay is instantly disappearing after trying Insert a few times, maybe try **`Alt + Insert`** ([reported workaround](https://github.com/optiscaler/OptiScaler/issues/484) for alternate keyboard layouts).
 
-![inputs_and_outputs](https://github.com/user-attachments/assets/ddc27ab3-7ce4-428e-93d7-cf52333ffa69)
+![inputs_and_outputs](https://raw.githubusercontent.com/Rayz0rum/OptiScaler-FrancaisINT/refs/heads/v0.9/images/entr%C3%A9es-sorties.png)
 
 ## Which APIs and Upscalers are Supported?
 Currently **OptiScaler** can be used with DirectX 11, DirectX 12 and Vulkan, but each API has different sets of supported upscalers.  
