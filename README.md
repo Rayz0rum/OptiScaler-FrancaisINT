@@ -44,7 +44,7 @@
 **Principaux aspects d'OptiScaler :**
 - Permet l'utilisation de XeSS, FSR2, FSR3, **FSR4**$`^2`$ (_RDNA4 uniquement_) et DLSS dans les jeux avec la mise à l'échelle activée
 - Offre aux utilisateurs la possibilité d’affiner leur expérience de mise à l’échelle avec un large éventail d’options et d’améliorations (RCAS & MAS, mise à l’échelle de sortie, préréglages DLSS, ratio et surcharges DRS, etc.)
-- Depuis la v0.7.0+, ajout du support expérimental de la génération d’images ***DX12*** avec solution possible de correction de l’affichage tête haute ([**OptiFG**](#optifg-powered-by-fsr3-fg--hudfix-experimental-hud-ghosting-fix) par la génération d'images FSR3)
+- Depuis la v0.7.0+, ajout du support expérimental de la génération d’images ***DX12*** avec solution possible de correction de l’affichage tête haute ([**OptiFG**](#optifg-powered-by-fsr3-fg--hudfix-experimental-hud-ghosting-fix) par la génération d'images FSR3 ou XeSS)
 - Supporte l’intégration de [**Fakenvapi**](#installation) - permet l'accrochage de Reflex et l’injection de _Anti-Lag 2_ (RDNA1+ uniquement), _LatencyFlex_ (LFX) ou _XeLL_ (Intel uniquement) - **_non inclus_**$`^3`$
 - Depuis la v0.7.7, ajout du support du mod de génération d'images FSR3 de **Nukem** [**dlssg-to-fsr3**](#installation), uniquement pour les jeux avec ***la génération d'images DLSS natif*** - **_non inclus_**$`^3`$
 - Depuis la v0.7.8, ajout du support du **chargement de plugins ASI** (_désactivé par défaut, charge depuis un dossier personnalisable, par défaut `plugins`_)
@@ -122,9 +122,9 @@ Actuellement, **OptiScaler** peut être utilisé avec DirectX 11, DirectX 12 et 
 - DLSS  
 - XeSS 2.x
 
-#### OptiFG (alimenté par la génération d'images FSR3) + correction ATH (correction expérimentale du ghosting de l'ATH) 
+#### OptiFG (alimenté par la génération d'images FSR3 ou XeSS) + correction ATH (correction expérimentale du ghosting de l'ATH) 
 **OptiFG** a été ajouté avec la **v0.7** et est **seulement pris en charge sur DX12**.  
-C’est une méthode **expérimentale** pour ajouter FSR3 FG à des jeux sans génération de frames native, ou peut aussi être utilisée en dernier recours si la génération d'images native ne fonctionne pas correctement.
+C’est une méthode **expérimentale** pour ajouter la génération d'images FSR3 ou XeSS à des jeux sans génération de frames native, ou peut aussi être utilisée en dernier recours si la génération d'images native ne fonctionne pas correctement.
 
 Pour plus d’informations sur OptiFG et son utilisation, consultez la page du guide - [OptiFG](https://github.com/optiscaler/OptiScaler/wiki/OptiFG).
 
