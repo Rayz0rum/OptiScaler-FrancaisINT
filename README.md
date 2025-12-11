@@ -22,10 +22,10 @@
 ## Table des matières
 
 **1.** [**À propos**](#à-propos)  
-**2.** [**Comment ça fonctionne ?**](#how-it-works)  
-**3.** [**APIs et upscalers pris en charge**](#which-apis-and-upscalers-are-supported)  
+**2.** [**Comment ça fonctionne ?**](#comment-ça-fonctionne-)  
+**3.** [**APIs et upscalers pris en charge**](#quelles-api-et-moteurs-de-mise-à-léchelle-sont-pris-en-charge-)  
 **4.** [**Installation**](#installation)  
-**5.** [**Problèmes connus**](#known-issues)  
+**5.** [**Problèmes connus**](#problèmes-connus)  
 **6.** [**Compilation et crédits**](#compilation)  
 **7.** [**Guide**](https://github.com/optiscaler/OptiScaler/wiki)
 
@@ -79,106 +79,101 @@
 
 *Ce projet est basé sur l’excellent [CyberFSR2](https://github.com/PotatoOfDoom/CyberFSR2) de [PotatoOfDoom](https://github.com/PotatoOfDoom).*
 
-## How it works?
-* OptiScaler acts as a middleware, it intercepts upscaler calls from the game (_**Inputs**_) and redirects them to the chosen upscaling backend (_**Output**_), allowing user to replace one technology with another one. **Inputs -> OptiScaler -> Outputs**  
-* _Or put more bluntly, **Input** is the upscaler used in game settings, and **Output** the one selected in Opti Overlay._
+## Comment ça fonctionne ?
+* OptiScaler agit comme un intergiciel : Il intercepte les appels aux algorithmes de mise à l’échelle effectués par le jeu (**Entrées**) et les redirige vers le moteur de la mise à l’échelle sélectionné (**Sortie**), permettant ainsi de remplacer une technologie par une autre. **Entrées -> OptiScaler -> Sorties**  
+* Pour l’expliquer plus simplement, **l’Entrée** correspond à l’algorithme de mise à l’échelle choisi dans les paramètres du jeu, et **la Sortie** est celui sélectionné dans la superposition Opti.
 
 > [!NOTE]
-> * Pressing **`Insert`** should open the Optiscaler **Overlay** in-game with all of the options (_`ShortcutKey=` can be changed in the config file_). 
-> * Pressing **`Page Up`** shows the performance stats overlay in the top left, and can be cycled between different modes with **`Page Down`** (_keybinds customisable in the overlay_).  
-> * If Opti overlay is instantly disappearing after trying Insert a few times, maybe try **`Alt + Insert`** ([reported workaround](https://github.com/optiscaler/OptiScaler/issues/484) for alternate keyboard layouts).
+> * Appuyer sur **`Insérer`** ouvre la **surcouche Opti Overlay** en jeu avec toutes les options (la valeur de `ShortcutKey=` peut être modifiée dans le fichier de configuration).
+> * Appuyer sur **`Page précédente`** affiche la surcouche des statistiques de performance en haut à gauche, et vous pouvez basculer entre différents modes avec **`Page suivante`** (raccourcis configurables dans la superposition).
+> * Si la superposition Opti se ferme instantanément après plusieurs tentatives avec **`Insérer`**, essayez **`Alt + Insérer`** ([solution signalée](https://github.com/optiscaler/OptiScaler/issues/484) pour les dispositions de clavier alternatives).
 
 ![inputs_and_outputs](https://raw.githubusercontent.com/Rayz0rum/OptiScaler-FrancaisINT/refs/heads/v0.9/images/entr%C3%A9es-sorties.png)
 
-## Which APIs and Upscalers are Supported?
-Currently **OptiScaler** can be used with DirectX 11, DirectX 12 and Vulkan, but each API has different sets of supported upscalers.  
-[**OptiFG**](#optifg-powered-by-fsr3-fg--hudfix-experimental-hud-ghosting-fix) currently **only supports DX12** and is explained in a separate paragraph.
+## Quelles API et moteurs de mise à l’échelle sont pris en charge ?
+Actuellement, **OptiScaler** peut être utilisé avec DirectX 11, DirectX 12 et Vulkan, mais chaque API prend en charge un ensemble différent de moteurs de mise à l’échelle.  
+[**OptiFG**](#optifg-powered-by-fsr3-fg--hudfix-experimental-hud-ghosting-fix) ne prend actuellement en charge que **DX12** et est expliqué dans un paragraphe séparé.
 
-#### For DirectX 12
-- XeSS (Default)
-- FSR 2.1.2, 2.2.1
-- FSR 3.X (and FSR 2.3.X)
-- FSR 4.0.X (via FSR3.X update, _RDNA4 only_)
-- DLSS
+#### Pour DirectX 12
+- XeSS (Par défaut)  
+- FSR 2.1.2, 2.2.1  
+- FSR 3.X (et FSR 2.3.X)  
+- FSR 4.0.X (via la mise à jour FSR 3.X, _RDNA4 seulement_)  
+- DLSS  
 
-#### For DirectX 11
-- FSR 2.2.1 (Default, native DX11)
-- FSR 3.1.2 (unofficial port to native DX11)
-- DLSS (native DX11)
-- XeSS 2.X (native DX11, _Intel ARC only_)
-- XeSS, FSR 2.1.2, 2.2.1, FSR 3.X w/Dx12 (_via D3D11on12_)$`^1`$
-- FSR 4.0.X (via FSR 3.X w/Dx12 update, _RDNA4 only_)
+#### Pour DirectX 11
+- FSR 2.2.1 (Par défaut, DX11 natif)  
+- FSR 3.1.2 (port non officiel vers DX11 natif)  
+- DLSS (DX11 natif)  
+- XeSS 2.X (DX11 natif, _Intel ARC seulement_)  
+- XeSS, FSR 2.1.2, 2.2.1, FSR 3.X avec DX12 (_via D3D11on12_)$`^1`$  
+- FSR 4.0.X (via FSR 3.X avec DX12 update, _RDNA4 seulement_)
 
 > [!NOTE]
 > <details>
->  <summary><b>Expand for [1]</b></summary>
+>  <summary><b>Déplier pour [1]</b></summary>
 >
-> _**[1]** These implementations use a background DirectX12 device to be able to use DX12-only upscalers. There's a performance penalty up to 10-ish % for this method, but allows many more upscaler options. Also native DX11 implementation of FSR 2.2.1 is a backport from Unity renderer and has its own problems of which some were fixed by OptiScaler._
+> _**[1]** Ces implémentations utilisent un dispositif DirectX12 en arrière-plan afin de pouvoir utiliser des upscalers réservés à DX12. Cette méthode entraîne une pénalité de performances pouvant atteindre environ 10 %, mais elle permet d’accéder à beaucoup plus d’options de mise à l'échelle. De plus, l’implémentation native DX11 de FSR 2.2.1 est un rétroportage du moteur Unity et comporte ses propres problèmes, dont certains ont été corrigés par OptiScaler._
 > </details>
 
-#### For Vulkan
-- FSR2 2.1.2 (Default), 2.2.1
-- FSR3 3.1 (and FSR2 2.3.2)
-- DLSS
-- XeSS 2.x
+#### OptiFG (alimenté par la génération d'images FSR3) + corr. ATH (correction expérimentale du ghosting de l'affichage tête haute)  
+**OptiFG** a été ajouté avec la **v0.7** et est **seulement pris en charge sur DX12**.  
+C’est une méthode **expérimentale** pour ajouter FSR3 FG à des jeux sans génération de frames native, ou peut aussi être utilisée en dernier recours si la génération d'images native ne fonctionne pas correctement.
 
-#### OptiFG (powered by FSR3 FG) + HUDfix (experimental HUD ghosting fix) 
-**OptiFG** was added with **v0.7** and is **only supported in DX12**. 
-It's an **experimental** way of adding FSR3 FG to games without native Frame Generation, or can also be used as a last case scenario if the native FG is not working properly.
-
-For more information on OptiFG and how to use it, please check the Wiki page - [OptiFG](https://github.com/optiscaler/OptiScaler/wiki/OptiFG).
+Pour plus d’informations sur OptiFG et son utilisation, consultez la page du guide - [OptiFG](https://github.com/optiscaler/OptiScaler/wiki/OptiFG).
 
 
 ## Installation
 > [!CAUTION]
-> _**Warning**: **Do not use this mod with online games.** It may trigger anti-cheat software and cause bans!_
+> _**Attention** : **Ne pas utiliser ce mod avec des jeux en ligne.** Il peut déclencher les logiciels anti-triche et entraîner des bannissements !_
 
 > [!IMPORTANT]
-> **For installation steps, please check the [**Wiki**](https://github.com/optiscaler/OptiScaler/wiki)**  
+> **Pour les étapes d’installation, veuillez consulter le [**Guide**](https://github.com/optiscaler/OptiScaler/wiki)**
 
 ## Configuration
-Please check [this](Config.md) document for configuration parameters and explanations. If your GPU is not an Nvidia one, check [GPU spoofing options](Spoofing.md) *(Will be updated)*
+Veuillez consulter [ce document](Config.md) pour les paramètres de configuration et leurs explications. Si votre carte graphique n’est pas une Nvidia, consultez les [options de contournement GPU](Spoofing.md) *(sera mis à jour)*.
 
-## Known Issues
-If you can't open the in-game menu overlay:
-1. Please check that you have enabled DLSS, XeSS or FSR from game options and are in-game, not inside game settings
-2. If using legacy installation, please try opening menu while you are in-game (while 3D rendering is happening)
-3. If you are using **RTSS** (MSI Afterburner, CapFrameX), please enable this setting in RTSS and/or try updating RTSS. **When using OptiFG, please disable RTSS for best compatibility**.
+## Problèmes connus
+Si vous ne pouvez pas ouvrir la superposition du menu en jeu :  
+1. Vérifiez que vous avez activé DLSS2+, XeSS ou FSR2+ depuis les options du jeu et que vous êtes bien en jeu, et non dans les paramètres du jeu.  
+2. Si vous utilisez l’installation classique, essayez d’ouvrir le menu pendant que vous êtes en jeu (pendant le rendu 3D).  
+3. Si vous utilisez **RTSS** (MSI Afterburner, CapFrameX), activez ce réglage dans RTSS et/ou essayez de mettre à jour RTSS. **Lors de l’utilisation d’OptiFG, désactivez RTSS pour une compatibilité optimale**.
  
  ![image](https://github.com/optiscaler/OptiScaler/assets/35529761/8afb24ac-662a-40ae-a97c-837369e03fc7)
 
-Please check [this](Issues.md) document for the rest of the known issues and possible solutions for them.  
-Also check the community [Wiki](https://github.com/optiscaler/OptiScaler/wiki) for possible game issues and HUDfix incompatible games.
+Veuillez consulter [ce document](Issues.md) pour la liste complète des problèmes connus et leurs solutions possibles.  
+Consultez également le [guide communautaire](https://github.com/optiscaler/OptiScaler/wiki) pour les éventuels problèmes liés aux jeux et les incompatibilités avec HUDfix.
 
 ## Compilation
 
-### Requirements
+### Prérequis
 * Visual Studio 2022
 
 ### Instructions
-* Clone this repo with **all of its submodules**.
-* Open the OptiScaler.sln with Visual Studio 2022.
-* Build the project
+* Clonez ce dépôt **avec tous ses sous-modules**.  
+* Ouvrez le fichier OptiScaler.sln avec Visual Studio 2022.  
+* Compilez le projet.
 
-## Thanks
-* @PotatoOfDoom for CyberFSR2
-* @Artur for DLSS Enabler and helping me implement NVNGX api correctly
-* @LukeFZ & @Nukem for their great mods and sharing their knowledge 
-* @FakeMichau for continous support, testing and feature creep
-* @QM for continous testing efforts and helping me to reach games
-* @TheRazerMD for continous testing and support
-* @Cryio, @krispy, @krisshietala, @Lordubuntu, @scz, @Veeqo for their hard work on (now outdated) [compatibility matrix](https://docs.google.com/spreadsheets/d/1qsvM0uRW-RgAYsOVprDWK2sjCqHnd_1teYAx00_TwUY)
-* And the whole DLSS2FSR community for all their support
+## Remerciements
+* @PotatoOfDoom pour CyberFSR2  
+* @Artur pour DLSS Enabler et pour m’avoir aidé à implémenter correctement l’API NVNGX  
+* @LukeFZ & @Nukem pour leurs excellents mods et le partage de leur savoir  
+* @FakeMichau pour son soutien continu, les tests et l’ajout de nouvelles fonctionnalités  
+* @QM pour ses efforts continus de test et pour m’avoir aidé à atteindre les jeux  
+* @TheRazerMD pour ses tests et son soutien continus  
+* @Cryio, @krispy, @krisshietala, @Lordubuntu, @scz, @Veeqo pour leur travail acharné sur l’[ancien tableau de compatibilité](https://docs.google.com/spreadsheets/d/1qsvM0uRW-RgAYsOVprDWK2sjCqHnd_1teYAx00_TwUY)  
+* Et toute la communauté DLSS2FSR pour leur soutien  
+* @Rayz0rum et @Dagherbou pour la traduction française internationale inofficielle d’OptiScaler
 
-## Credit
-This project uses [FreeType](https://gitlab.freedesktop.org/freetype/freetype) licensed under the [FTL](https://gitlab.freedesktop.org/freetype/freetype/-/blob/master/docs/FTL.TXT)
+## Crédits
+Ce projet utilise [FreeType](https://gitlab.freedesktop.org/freetype/freetype) sous licence [FTL](https://gitlab.freedesktop.org/freetype/freetype/-/blob/master/docs/FTL.TXT)
 
 ## Sponsors
 <table>
  <tbody>
   <tr>
    <td align="center"><img alt="[SignPath]" src="https://avatars.githubusercontent.com/u/34448643" height="30"/></td>
-   <td>Free code signing on Windows provided by <a href="https://signpath.io/">SignPath.io</a>, certificate by <a href="https://signpath.org/">SignPath Foundation</a></td>
+   <td>Signature de code gratuite sur Windows fournie par <a href="https://signpath.io/">SignPath.io</a>, certificat délivré par la <a href="https://signpath.org/">fondation SignPath</a></td>
   </tr>
  </tbody>
 </table>
