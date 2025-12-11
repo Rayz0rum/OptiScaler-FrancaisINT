@@ -2,81 +2,82 @@
 
 ![Logo](https://github.com/user-attachments/assets/c7dad5da-0b29-4710-8a57-b58e4e407abd)
 
+### Traduction française internationale non officielle de [OptiScaler](https://github.com/optiscaler/OptiScaler)
 </div>
 
 <div align="center">
-  <a href="https://discord.gg/wEyd9w4hG5"><img src="https://img.shields.io/badge/OptiScaler-blue?style=for-the-badge&logo=discord&logoColor=white&logoSize=auto&color=5865F2" alt="Discord invite"></a>
-  <a href="https://github.com/optiscaler/OptiScaler/releases/latest"><img src="https://img.shields.io/badge/Download-Stable-green?style=for-the-badge&logo=github&logoSize=auto" alt="Stable release"></a>
-  <a href="https://github.com/optiscaler/OptiScaler/releases/tag/nightly"><img src="https://img.shields.io/badge/Download-Nightly-purple?style=for-the-badge&logo=github&logoSize=auto" alt="Nightly release"></a>
+  <a href="https://discord.gg/wEyd9w4hG5"><img src="https://img.shields.io/badge/OptiScaler-blue?style=for-the-badge&logo=discord&logoColor=white&logoSize=auto&color=5865F2" alt="Invitation Discord"></a>
+  <a href="https://github.com/optiscaler/OptiScaler/releases/latest"><img src="https://img.shields.io/badge/Télécharger-Stable-green?style=for-the-badge&logo=github&logoSize=auto" alt="Version stable"></a>
+  <a href="https://github.com/optiscaler/OptiScaler/releases/tag/nightly"><img src="https://img.shields.io/badge/Télécharger-Développement-purple?style=for-the-badge&logo=github&logoSize=auto" alt="Version de développement"></a>
   <a href="https://github.com/optiscaler/OptiScaler/wiki"><img src="https://img.shields.io/badge/Documentation-blue?style=for-the-badge&logo=gitbook&logoColor=white&logoSize=auto" alt="Wiki"></a>
 </div>
 
 <div align="center">
   <a href="https://github.com/optiscaler/OptiScaler/releases"><img src="https://img.shields.io/github/downloads/optiscaler/optiscaler/total?style=for-the-badge&logo=gitextensions&logoSize=auto&label=Total" alt="Total DL"></a>
-  <a href="https://github.com/optiscaler/OptiScaler/releases/latest"><img src="https://img.shields.io/github/downloads/optiscaler/optiscaler/latest/total?style=for-the-badge&logo=gitextensions&logoSize=auto&label=Stable&color=green&logoColor=white" alt="Stable DL"></a>
-  <a href="https://github.com/optiscaler/OptiScaler/releases/tag/nightly"><img src="https://img.shields.io/github/downloads/optiscaler/OptiScaler/nightly/total?style=for-the-badge&logo=gitextensions&logoColor=white&logoSize=auto&label=Nightly&color=purple" alt="Nightly DL"></a>
+  <a href="https://github.com/optiscaler/OptiScaler/releases/latest"><img src="https://img.shields.io/github/downloads/optiscaler/optiscaler/latest/total?style=for-the-badge&logo=gitextensions&logoSize=auto&label=Stable&color=green&logoColor=white" alt="Télécharger stable"></a>
+  <a href="https://github.com/optiscaler/OptiScaler/releases/tag/nightly"><img src="https://img.shields.io/github/downloads/optiscaler/OptiScaler/nightly/total?style=for-the-badge&logo=gitextensions&logoColor=white&logoSize=auto&label=Nightly&color=purple" alt="Télécharger développement"></a>
   <a href="https://github.com/optiscaler/OptiScaler/stargazers"><img src="https://img.shields.io/github/stars/optiscaler/optiscaler?style=for-the-badge&logo=githubsponsors&logoColor=white&label=S.T.A.R.S." alt="Stars"></a>
 </div>
 
-## Table of Contents
+## Table des matières
 
-**1.** [**About**](#about)  
-**2.** [**How it works?**](#how-it-works)  
-**3.** [**Supported APIs and Upscalers**](#which-apis-and-upscalers-are-supported)  
+**1.** [**À propos**](#à-propos)  
+**2.** [**Comment ça fonctionne ?**](#how-it-works)  
+**3.** [**APIs et upscalers pris en charge**](#which-apis-and-upscalers-are-supported)  
 **4.** [**Installation**](#installation)  
-**5.** [**Known Issues**](#known-issues)  
-**6.** [**Compilation and Credits**](#compilation)  
-**7.** [**Wiki**](https://github.com/optiscaler/OptiScaler/wiki)
+**5.** [**Problèmes connus**](#known-issues)  
+**6.** [**Compilation et crédits**](#compilation)  
+**7.** [**Guide**](https://github.com/optiscaler/OptiScaler/wiki)
 
-## About
+## À propos
 
-**OptiScaler** is a tool that lets you replace upscalers in games that ***already support DLSS2+ / FSR2+ / XeSS*** ($`^1`$), now also supports ***enabling frame generation*** in those same games (through ***Nukem's dlssg-to-fsr3*** or ***OptiFG***). It also offers extensive customization options for all users, including those with Nvidia GPUs using DLSS.
+**OptiScaler** est un outil qui permet de remplacer les upscalers dans les jeux qui ***prennent déjà en charge DLSS2+, XeSS, ou FSR2+*** ($`^1`$), et qui supporte désormais également ***l’activation de la génération d’images*** dans ces mêmes jeux (via ***dlssg-to-fsr3 de Nukem*** ou ***OptiFG***). Il offre aussi de larges options de personnalisation pour tous les utilisateurs, y compris ceux disposant de cartes graphiques Nvidia utilisant DLSS.
 
 > [!CAUTION]
-> * We've been informed about some **FAKE websites** presenting themselves as OptiScaler team, so we would like to strongly highlight that we **DO NOT HAVE an official website!**  
-> * Only **LEGIT places** are this Github, our Discord server and Nitec's NexusMods page.  
-> * OptiScaler is **FREE**, any kind of monetary requirements are scams as we don't even have a donation link at the moment!  
+> * Nous avons été informés de certains **sites FAUX** se présentant comme l’équipe d’OptiScaler, donc nous tenons à **RAPPELER QUE OPTISCALER N'A PAS de site officiel !**  
+> * Les seuls **endroits LÉGITIMES** sont [le GitHub originel](https://github.com/optiscaler/OptiScaler), ce Github, leur serveur Discord et la page NexusMods de Nitec.  
+> * OptiScaler est **GRATUIT**, toute demande d’argent est une arnaque car Optiscaler n’a même pas de lien de don pour le moment !
 
 > [!TIP]
-> _For example, if a game has DLSS only, OptiScaler can be used to replace DLSS with XeSS or FSR 3.1 (also works for FSR2-only games, like The Outer Worlds Spacer's Choice)._
+> _Par exemple, si un jeu ne propose que DLSS, OptiScaler peut être utilisé pour remplacer DLSS par XeSS ou FSR 3.1 (fonctionne également pour les jeux uniquement FSR2, comme The Outer Worlds : Spacer's Choice)._
 
-**Key aspects of OptiScaler:**
-- Enables usage of XeSS, FSR2, FSR3, **FSR4**$`^2`$ (_RDNA4 only_) and DLSS in upscaler-enabled games
-- Allows users to fine-tune their upscaling experience with a wide range of tweaks and enhancements (RCAS & MAS, Output Scaling, DLSS Presets, Ratio & DRS Overrides etc.)
-- Since v0.7.0+, added ***experimental DX12*** frame generation support with possible HUDfix solution ([**OptiFG**](#optifg-powered-by-fsr3-fg--hudfix-experimental-hud-ghosting-fix) by FSR3FG)
-- Supports [**Fakenvapi**](#installation) integration - enables Reflex hooking and injecting _Anti-Lag 2_ (RDNA1+ only), _LatencyFlex_ (LFX) or _XeLL_ (Intel only) - **_not bundled_**$`^3`$  
-- Since v0.7.7, added support for **Nukem's** FSR FG mod [**dlssg-to-fsr3**](#installation), only supports games with ***native DLSS-FG*** - **_not bundled_**$`^3`$
-- Since v0.7.8, added **ASI plugin loading** support (_disabled_ by default, loads from customisable folder, default `plugins`)
-- New project - [**OptiPatcher**](https://github.com/optiscaler/OptiPatcher) - an ASI Plugin for OptiScaler for enabling DLSS without spoofing in supported games.
-- Since v0.7.8, OptiScaler is now automatically applying some game patches for a better out-of-the-box experience
-- For a detailed list of all features, check [Features](Features.md)
+**Principaux aspects d'OptiScaler :**
+- Permet l'utilisation de XeSS, FSR2, FSR3, **FSR4**$`^2`$ (_RDNA4 uniquement_) et DLSS dans les jeux avec la mise à l'échelle activée
+- Offre aux utilisateurs la possibilité d’affiner leur expérience de mise à l’échelle avec un large éventail d’options et d’améliorations (RCAS & MAS, mise à l’échelle de sortie, préréglages DLSS, ratio et surcharges DRS, etc.)
+- Depuis la v0.7.0+, ajout du support expérimental de la génération d’images ***DX12*** avec solution possible de correction de l’affichage tête haute ([**OptiFG**](#optifg-powered-by-fsr3-fg--hudfix-experimental-hud-ghosting-fix) par la génération d'images FSR3)
+- Supporte l’intégration de [**Fakenvapi**](#installation) - permet l'accrochage de Reflex et l’injection de _Anti-Lag 2_ (RDNA1+ uniquement), _LatencyFlex_ (LFX) ou _XeLL_ (Intel uniquement) - **_non inclus_**$`^3`$
+- Depuis la v0.7.7, ajout du support du mod de génération d'images FSR3 de **Nukem** [**dlssg-to-fsr3**](#installation), uniquement pour les jeux avec ***la génération d'images DLSS natif*** - **_non inclus_**$`^3`$
+- Depuis la v0.7.8, ajout du support du **chargement de plugins ASI** (_désactivé par défaut, charge depuis un dossier personnalisable, par défaut `plugins`_)
+- Nouveau projet - [**OptiPatcher**](https://github.com/optiscaler/OptiPatcher) - un plugin ASI pour OptiScaler permettant d’activer DLSS sans spoofing dans les jeux pris en charge
+- Depuis la v0.7.8, OptiScaler applique automatiquement certains patchs de jeux pour une meilleure expérience dès l’installation
+- Pour une liste détaillée de toutes les fonctionnalités, consultez [Fonctionnalités](Features.md)
 
 
 > [!IMPORTANT]
-> _**Always check the [Wiki Compatibility list](https://github.com/optiscaler/OptiScaler/wiki) for known game issues and workarounds.**_  
-> Also please check the  [***OptiScaler known issues***](#known-issues) at the end regarding **RTSS** compatibility.  
-> A separate [***FSR4 Compatibility list***](https://github.com/optiscaler/OptiScaler/wiki/FSR4-Compatibility-List) is available for community-sourced tested games.  
-> ***[3]** For **not bundled** items, please check [Installation](#installation).*  
+> _**Vérifiez toujours la [liste de compatibilité du Guide](https://github.com/optiscaler/OptiScaler/wiki) pour connaître les problèmes connus des jeux et leurs solutions.**_
+> > Veuillez également consulter la [***liste des problèmes connus d’OptiScaler***](#known-issues) à la fin concernant la compatibilité avec **RTSS**.  
+> Une [***liste de compatibilité FSR4***](https://github.com/optiscaler/OptiScaler/wiki/FSR4-Compatibility-List) distincte est disponible pour les jeux testés par la communauté.  
+> ***[3]** Pour les éléments **non inclus**, veuillez consulter [Installation](#installation).*
 
 > [!NOTE]
-> ### Upscaler notes
+> ### Notes sur les mises à l'échelle
 > <details>
->  <summary><b>Click for [1], [2] </b></summary>  
+>  <summary><b>Cliquez pour [1], [2]</b></summary>  
 >  
-> **[1]** For **Unreal Engine** games, only UE XeSS -> Opti XeSS/Opti FSR4 work  
+> **[1]** Pour les jeux **Unreal Engine**, seules les remplacements UE XeSS -> Opti XeSS/Opti FSR4 fonctionnent.  
 >  
-> *Regarding **XeSS** inputs, since **Unreal Engine plugin** does not provide depth, replacing in-game XeSS breaks other upscalers (e.g. Redout 2 as a XeSS-only game), but you can still apply RCAS sharpening to XeSS to reduce blurry visuals.* 
+> *Concernant les entrées **XeSS**, comme le **plugin Unreal Engine** ne fournit pas de profondeur, remplacer XeSS dans le jeu casse les autres mises à l'échelle (ex. Redout 2, jeu uniquement XeSS), mais vous pouvez toujours appliquer l’accentuation RCAS à XeSS pour réduire le flou visuel.*  
 >
-> *Regarding **FSR inputs**, FSR 3.1 is the first version with a fully standardised, forward-looking API and should be fully supported. Since FSR2 and FSR3 support custom interfaces, game support will depend on the developers' implementation. With Unreal Engine games, you might need [ini tweaks](https://github.com/optiscaler/OptiScaler/wiki/Unreal-Engine-Tweaks) for FSR inputs.*  
+> *Concernant les entrées **FSR**, FSR 3.1 est la première version avec une API entièrement standardisée et moderne et devrait être entièrement supportée. Comme FSR2 et FSR3 supportent des interfaces personnalisées, la compatibilité des jeux dépendra de l’implémentation des développeurs. Pour les jeux Unreal Engine, il peut être nécessaire d’appliquer des [tweaks ini](https://github.com/optiscaler/OptiScaler/wiki/Unreal-Engine-Tweaks) pour les entrées FSR.*  
 >
-> **[2]** *Regarding **FSR4**, support added with recent Nightly builds. Please check [FSR4 Compatibility list](https://github.com/optiscaler/OptiScaler/wiki/FSR4-Compatibility-List) for known supported games and general info.*
+> **[2]** *Concernant **FSR4**, le support a été ajouté avec les récentes versions de développement. Veuillez consulter la [liste de compatibilité FSR4](https://github.com/optiscaler/OptiScaler/wiki/FSR4-Compatibility-List) pour les jeux supportés connus et les informations générales.*
 > 
 > </details>
 
 
-## Official Discord Server: [OptiScaler](https://discord.gg/wEyd9w4hG5)
+## Serveur Discord officiel : [OptiScaler](https://discord.gg/wEyd9w4hG5)
 
-*This project is based on [PotatoOfDoom](https://github.com/PotatoOfDoom)'s excellent [CyberFSR2](https://github.com/PotatoOfDoom/CyberFSR2).*
+*Ce projet est basé sur l’excellent [CyberFSR2](https://github.com/PotatoOfDoom/CyberFSR2) de [PotatoOfDoom](https://github.com/PotatoOfDoom).*
 
 ## How it works?
 * OptiScaler acts as a middleware, it intercepts upscaler calls from the game (_**Inputs**_) and redirects them to the chosen upscaling backend (_**Output**_), allowing user to replace one technology with another one. **Inputs -> OptiScaler -> Outputs**  
