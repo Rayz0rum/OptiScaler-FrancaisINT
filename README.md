@@ -116,7 +116,13 @@ Actuellement, **OptiScaler** peut être utilisé avec DirectX 11, DirectX 12 et 
 > _**[1]** Ces implémentations utilisent un dispositif DirectX12 en arrière-plan afin de pouvoir utiliser des upscalers réservés à DX12. Cette méthode entraîne une pénalité de performances pouvant atteindre environ 10 %, mais elle permet d’accéder à beaucoup plus d’options de mise à l'échelle. De plus, l’implémentation native DX11 de FSR 2.2.1 est un rétroportage du moteur Unity et comporte ses propres problèmes, dont certains ont été corrigés par OptiScaler._
 > </details>
 
-#### OptiFG (alimenté par la génération d'images FSR3) + corr. ATH (correction expérimentale du ghosting de l'affichage tête haute)  
+#### Pour Vulkan
+- FSR2 2.1.2 (Par défaut), 2.2.1  
+- FSR3 3.1 (et FSR2 2.3.2)  
+- DLSS  
+- XeSS 2.x
+
+#### OptiFG (alimenté par la génération d'images FSR3) + correction ATH (correction expérimentale du ghosting de l'ATH) 
 **OptiFG** a été ajouté avec la **v0.7** et est **seulement pris en charge sur DX12**.  
 C’est une méthode **expérimentale** pour ajouter FSR3 FG à des jeux sans génération de frames native, ou peut aussi être utilisée en dernier recours si la génération d'images native ne fonctionne pas correctement.
 
