@@ -74,7 +74,7 @@ static std::vector<std::string> splashText = { "Pratique le déni plus intellige
                                                "De toute façon, le rendu natif, c’est juste de la pub.",
                                                "Plus haut dans l’échelle, plus riche en pixels.",
                                                "Une meilleure carte graphique, ça n’attend pas.",
-                                               "Là où on va, on se passe de vrais pixels.",
+                                               "Là où on va, on ne veut aucun vrai pixel.",
                                                "La génération d’images XeSS, maintenant accessible à tous grâce à Intel!",
                                                "La génération d’images multiples fonctionne parfaitement avec Nukem, promis!",
                                                "Certains pixels... peut‑être vrais, qui sait?",
