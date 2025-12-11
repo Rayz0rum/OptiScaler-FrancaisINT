@@ -88,7 +88,7 @@
 > * Appuyer sur **`Page précédente`** affiche la surcouche des statistiques de performance en haut à gauche, et vous pouvez basculer entre différents modes avec **`Page suivante`** (raccourcis configurables dans la superposition).
 > * Si la superposition Opti se ferme instantanément après plusieurs tentatives avec **`Insérer`**, essayez **`Alt + Insérer`** ([solution signalée](https://github.com/optiscaler/OptiScaler/issues/484) pour les dispositions de clavier alternatives).
 
-![inputs_and_outputs](https://raw.githubusercontent.com/Rayz0rum/OptiScaler-FrancaisINT/refs/heads/v0.9/images/entr%C3%A9es-sorties.png)
+![inputs_and_outputs](https://raw.githubusercontent.com/Rayz0rum/OptiScaler-FrancaisINT/5b676f37722f99f27e44f07a0acd200a77aa4912/images/entr%C3%A9es-sorties.png)
 
 ## Quelles API et moteurs de mise à l’échelle sont pris en charge ?
 Actuellement, **OptiScaler** peut être utilisé avec DirectX 11, DirectX 12 et Vulkan, mais chaque API prend en charge un ensemble différent de moteurs de mise à l’échelle.  
