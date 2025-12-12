@@ -46,7 +46,6 @@ std::string WhoIsTheCaller(void* returnAddress);
 HMODULE GetCallerModule(void* returnAddress);
 MonitorInfo GetMonitorInfoForWindow(HWND hwnd);
 MonitorInfo GetMonitorInfoForOutput(IDXGIOutput* pOutput);
-int GetActiveRefreshRate(HWND hwnd);
 bool CheckForRealObject(std::string functionName, IUnknown* pObject, IUnknown** ppRealObject);
 
 }; // namespace Util
