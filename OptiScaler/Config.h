@@ -102,12 +102,13 @@ template <class T, HasDefaultValue defaultState = WithDefault> class CustomOptio
     }
 
     constexpr T value_or_default() &&
-        requires(defaultState != NoDefault) {
-            return this->has_value() ? std::move(this->value()) : std::move(_defaultValue);
-        }
+        requires(defaultState != NoDefault)
+    {
+        return this->has_value() ? std::move(this->value()) : std::move(_defaultValue);
+    }
 
-        constexpr std::optional<T> value_for_config(bool forceSave = false)
-            requires(defaultState == WithDefault)
+    constexpr std::optional<T> value_for_config(bool forceSave = false)
+        requires(defaultState == WithDefault)
     {
         if (_volatile)
         {
@@ -314,9 +315,6 @@ class Config
     CustomOptional<int32_t, NoDefault> ExposureResourceBarrier; // disabled by default
     CustomOptional<int32_t, NoDefault> MaskResourceBarrier;     // disabled by default
     CustomOptional<int32_t, NoDefault> OutputResourceBarrier;   // disabled by default
-
-    CustomOptional<bool> DontCreateD3D12DeviceForLuma { false };
-
 
     // Upscalers
     CustomOptional<std::string, SoftDefault> Dx11Upscaler { "fsr22" };
