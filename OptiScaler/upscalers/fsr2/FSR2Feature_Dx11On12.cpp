@@ -170,8 +170,6 @@ bool FSR2FeatureDx11on12::Evaluate(ID3D11DeviceContext* InDeviceContext, NVSDK_N
 
     auto ffxresult = FFX_ERROR_INVALID_ARGUMENT;
 
-    uint8_t state = 0;
-
     do
     {
 
@@ -207,8 +205,6 @@ bool FSR2FeatureDx11on12::Evaluate(ID3D11DeviceContext* InDeviceContext, NVSDK_N
                                            D3D12_RESOURCE_STATE_UNORDERED_ACCESS) &&
                 Bias->CanRender())
             {
-                state = 1;
-
                 Bias->SetBufferState(cmdList, D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
 
                 if (Config::Instance()->DlssReactiveMaskBias.value_or_default() > 0.0f &&
@@ -229,8 +225,6 @@ bool FSR2FeatureDx11on12::Evaluate(ID3D11DeviceContext* InDeviceContext, NVSDK_N
                                                    TargetWidth(), TargetHeight(),
                                                    D3D12_RESOURCE_STATE_UNORDERED_ACCESS))
             {
-                state = 1;
-
                 OutputScaler->SetBufferState(cmdList, D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
                 params.output = ffxGetResourceDX12(&_context, OutputScaler->Buffer(), L"FSR2_Out",
                                                    FFX_RESOURCE_STATE_UNORDERED_ACCESS);
@@ -255,7 +249,6 @@ bool FSR2FeatureDx11on12::Evaluate(ID3D11DeviceContext* InDeviceContext, NVSDK_N
             RCAS->CreateBufferResource(State::Instance().currentD3D12Device, (ID3D12Resource*) params.output.resource,
                                        D3D12_RESOURCE_STATE_UNORDERED_ACCESS))
         {
-            state = 1;
             RCAS->SetBufferState(cmdList, D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
             params.output =
                 ffxGetResourceDX12(&_context, RCAS->Buffer(), L"FSR2_Out", FFX_RESOURCE_STATE_UNORDERED_ACCESS);
@@ -308,7 +301,6 @@ bool FSR2FeatureDx11on12::Evaluate(ID3D11DeviceContext* InDeviceContext, NVSDK_N
 
         LOG_DEBUG("Dispatch!!");
         ffxresult = ffxFsr2ContextDispatch(&_context, &params);
-        state = 1;
 
         if (ffxresult != FFX_OK)
         {
@@ -376,26 +368,18 @@ bool FSR2FeatureDx11on12::Evaluate(ID3D11DeviceContext* InDeviceContext, NVSDK_N
             }
         }
 
-        state = 2;
-
     } while (false);
 
     // Execute dx12 commands to process fsr
-    if (state > 0)
-    {
-        cmdList->Close();
-        ID3D12CommandList* ppCommandLists[] = { cmdList };
-        Dx12CommandQueue->ExecuteCommandLists(1, ppCommandLists);
-        Dx12CommandQueue->Signal(dx12FenceTextureCopy, _fenceValue);
-    }
+    cmdList->Close();
+    ID3D12CommandList* ppCommandLists[] = { cmdList };
+    Dx12CommandQueue->ExecuteCommandLists(1, ppCommandLists);
+    Dx12CommandQueue->Signal(dx12FenceTextureCopy, _fenceValue);
 
     auto evalResult = false;
 
     do
     {
-        if (state != 2)
-            break;
-
         if (ffxresult != FFX_OK)
             break;
 
