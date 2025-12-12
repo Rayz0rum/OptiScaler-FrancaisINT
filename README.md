@@ -81,12 +81,12 @@
 
 ## Comment ça fonctionne ?
 * OptiScaler agit comme un intergiciel : Il intercepte les appels aux algorithmes de mise à l’échelle effectués par le jeu (**Entrées**) et les redirige vers le moteur de la mise à l’échelle sélectionné (**Sortie**), permettant ainsi de remplacer une technologie par une autre. **Entrées -> OptiScaler -> Sorties**  
-* Pour l’expliquer plus simplement, **l’Entrée** correspond à l’algorithme de mise à l’échelle choisi dans les paramètres du jeu, et **la Sortie** est celui sélectionné dans la superposition Opti.
+* Pour l’expliquer plus simplement, **l’Entrée** correspond à l’algorithme de mise à l’échelle choisi dans les paramètres du jeu, et **la Sortie** est celui sélectionné dans le menu de surcouche Opti.
 
 > [!NOTE]
-> * Appuyer sur **`Insérer`** ouvre la **surcouche Opti Overlay** en jeu avec toutes les options (la valeur de `ShortcutKey=` peut être modifiée dans le fichier de configuration).
-> * Appuyer sur **`Page précédente`** affiche la surcouche des statistiques de performance en haut à gauche, et vous pouvez basculer entre différents modes avec **`Page suivante`** (raccourcis configurables dans la superposition).
-> * Si la superposition Opti se ferme instantanément après plusieurs tentatives avec **`Insérer`**, essayez **`Alt + Insérer`** ([solution signalée](https://github.com/optiscaler/OptiScaler/issues/484) pour les dispositions de clavier alternatives).
+> * Appuyer sur **`Insérer`** ouvre le **menu de surcouche Opti** en jeu avec toutes les options (la valeur de `ShortcutKey=` peut être modifiée dans le fichier de configuration).
+> * Appuyer sur **`Page précédente`** affiche la superposition de performance Opti en haut à gauche, et vous pouvez basculer entre différents modes avec **`Page suivante`** (raccourcis configurables dans la superposition de performance Opti).
+> * Si le menu de surcouche Opti se ferme instantanément après plusieurs tentatives avec **`Insérer`**, essayez **`Alt + Insérer`** ([solution signalée](https://github.com/optiscaler/OptiScaler/issues/484) pour les dispositions de clavier alternatives).
 
 ![inputs_and_outputs](https://github.com/Rayz0rum/OptiScaler-FrancaisINT/blob/master/images/entr%C3%A9es-sorties.png)
 
@@ -140,7 +140,7 @@ Pour plus d’informations sur OptiFG et son utilisation, consultez la page du g
 Veuillez consulter [ce document](Config.md) pour les paramètres de configuration et leurs explications. Si votre carte graphique n’est pas une Nvidia, consultez les [options de contournement GPU](Spoofing.md) *(sera mis à jour)*.
 
 ## Problèmes connus
-Si vous ne pouvez pas ouvrir la superposition du menu en jeu :  
+Si vous ne pouvez pas ouvrir le menu de surcouche Opti en jeu :  
 1. Vérifiez que vous avez activé DLSS2+, XeSS ou FSR2+ depuis les options du jeu et que vous êtes bien en jeu, et non dans les paramètres du jeu.  
 2. Si vous utilisez l’installation classique, essayez d’ouvrir le menu pendant que vous êtes en jeu (pendant le rendu 3D).  
 3. Si vous utilisez **RTSS** (MSI Afterburner, CapFrameX), activez ce réglage dans RTSS et/ou essayez de mettre à jour RTSS. **Lors de l’utilisation d’OptiFG, désactivez RTSS pour une compatibilité optimale**.
