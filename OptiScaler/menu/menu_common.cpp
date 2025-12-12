@@ -2174,10 +2174,9 @@ bool MenuCommon::RenderMenu()
         // Main menu window
         if (windowTitle.empty())
         {
-            windowTitle =
-                StrFmt("%s - %s %s %s %s", VER_PRODUCT_NAME, state.GameExe.c_str(),
-                       state.GameName.empty() ? "" : StrFmt("- %s", state.GameName.c_str()).c_str(),
-                       (state.detectedQuirks.size() > 0) ? "(Q)" : "", state.isOptiPatcherSucceed ? "(OP)" : "");
+            windowTitle = StrFmt("%s - %s %s %s %s", VER_PRODUCT_NAME, state.GameExe.c_str(),
+                                 state.GameName.empty() ? "" : StrFmt("- %s", state.GameName.c_str()).c_str(),
+                                 (state.gameQuirks.count() > 0) ? "(Q)" : "", state.isOptiPatcherSucceed ? "(OP)" : "");
         }
 
         if (ImGui::Begin(windowTitle.c_str(), NULL, flags))
@@ -4177,7 +4176,7 @@ bool MenuCommon::RenderMenu()
                     {
                         _limitFps = 0.0f;
                         config->FramerateLimit = _limitFps;
-                    }
+                }
 
                     ImGui::Spacing();
                     if (ImGui::CollapsingHeader("VRR Frame Cap Calculator"))
@@ -4673,22 +4672,6 @@ bool MenuCommon::RenderMenu()
 
                                 ImGui::EndDisabled();
                             }
-                        }
-                    }
-                }
-
-                // QUIRKS -----------------------------
-                if (state.detectedQuirks.size() > 0)
-                {
-                    ImGui::Spacing();
-                    if (ImGui::CollapsingHeader("Active Quirks"))
-                    {
-                        ScopedIndent indent {};
-                        ImGui::Spacing();
-
-                        for (const auto& quirk : state.detectedQuirks)
-                        {
-                            ImGui::TextWrapped("%s", quirk.c_str());
                         }
                     }
                 }
