@@ -193,17 +193,16 @@ void FSRFG_Dx12::ConfigureFramePaceTuning()
 
 feature_version FSRFG_Dx12::Version()
 {
-
-    if (_fgContext == nullptr && _version.major == 0)
-    {
     if (!FfxApiProxy::IsFGReady())
         FfxApiProxy::InitFfxDx12();
 
     if (FfxApiProxy::IsFGReady())
-            _version = FfxApiProxy::VersionDx12_FG();
+    {
+        auto ver = FfxApiProxy::VersionDx12_FG();
+        return ver;
     }
 
-    return _version;
+    return { 0, 0, 0 };
 }
 
 HWND FSRFG_Dx12::Hwnd() { return _hwnd; }
@@ -552,7 +551,6 @@ void FSRFG_Dx12::DestroyFGContext()
 {
     _frameCount = 1;
     _lastDispatchedFrame = 0;
-    _version = {};
 
     LOG_DEBUG("");
 
@@ -826,8 +824,6 @@ void FSRFG_Dx12::CreateContext(ID3D12Device* device, FG_Constants& fgConstants)
     override.header.type = FFX_API_DESC_TYPE_OVERRIDE_VERSION;
     override.versionId = State::Instance().ffxFGVersionIds[Config::Instance()->FfxFGIndex.value_or_default()];
     backendDesc.header.pNext = &override.header;
-
-    ParseVersion(State::Instance().ffxFGVersionNames[Config::Instance()->FfxFGIndex.value_or_default()], &_version);
 
     ffxReturnCode_t retCode = FfxApiProxy::D3D12_CreateContext(&_fgContext, &createFg.header, nullptr);
 
