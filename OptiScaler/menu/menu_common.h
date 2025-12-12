@@ -54,9 +54,8 @@ class MenuCommon
     // reflex
     inline static float _limitFps = std::numeric_limits<float>::infinity();
 
-    // ffx
-    inline static int _ffxUpscalerIndex = -1;
-    inline static int _ffxFGIndex = -1;
+    // fsr3x
+    inline static int _fsr3xIndex = -1;
 
     // output scaling
     inline static float _ssRatio = 0.0f;

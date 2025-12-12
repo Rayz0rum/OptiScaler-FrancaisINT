@@ -2498,23 +2498,22 @@ bool MenuCommon::RenderMenu()
                     {
                         ImGui::SeparatorText("FFX Settings");
 
-                        if (_ffxUpscalerIndex < 0)
-                            _ffxUpscalerIndex = config->FfxUpscalerIndex.value_or_default();
+                        if (_fsr3xIndex < 0)
+                            _fsr3xIndex = config->Fsr3xIndex.value_or_default();
 
                         if (currentBackend == "fsr31" ||
-                            currentBackend == "fsr31_12" && state.ffxUpscalerVersionNames.size() > 0)
+                            currentBackend == "fsr31_12" && state.fsr3xVersionNames.size() > 0)
                         {
                             ImGui::PushItemWidth(135.0f * config->MenuScale.value_or_default());
 
-                            auto currentName = StrFmt("FSR %s", state.ffxUpscalerVersionNames[_ffxUpscalerIndex]);
+                            auto currentName = StrFmt("FSR %s", state.fsr3xVersionNames[_fsr3xIndex]);
                             if (ImGui::BeginCombo("FFX Upscaler", currentName.c_str()))
                             {
-                                for (int n = 0; n < state.ffxUpscalerVersionIds.size(); n++)
+                                for (int n = 0; n < state.fsr3xVersionIds.size(); n++)
                                 {
-                                    auto name = StrFmt("FSR %s", state.ffxUpscalerVersionNames[n]);
-                                    if (ImGui::Selectable(name.c_str(),
-                                                          config->FfxUpscalerIndex.value_or_default() == n))
-                                        _ffxUpscalerIndex = n;
+                                    auto name = StrFmt("FSR %s", state.fsr3xVersionNames[n]);
+                                    if (ImGui::Selectable(name.c_str(), config->Fsr3xIndex.value_or_default() == n))
+                                        _fsr3xIndex = n;
                                 }
 
                                 ImGui::EndCombo();
@@ -2526,9 +2525,9 @@ bool MenuCommon::RenderMenu()
                             ImGui::SameLine(0.0f, 6.0f);
 
                             if (ImGui::Button("Change Upscaler") &&
-                                _ffxUpscalerIndex != config->FfxUpscalerIndex.value_or_default())
+                                _fsr3xIndex != config->Fsr3xIndex.value_or_default())
                             {
-                                config->FfxUpscalerIndex = _ffxUpscalerIndex;
+                                config->Fsr3xIndex = _fsr3xIndex;
                                 state.newBackend = currentBackend;
                                 MARK_ALL_BACKENDS_CHANGED();
                             }
@@ -3220,39 +3219,6 @@ bool MenuCommon::RenderMenu()
                         (currentFeature != nullptr && !currentFeature->IsFrozen()) && FfxApiProxy::IsFGReady())
                     {
                         ImGui::SeparatorText("Frame Generation (FSR FG)");
-
-                        if (_ffxFGIndex < 0)
-                            _ffxFGIndex = config->FfxFGIndex.value_or_default();
-
-                        if (state.ffxFGVersionNames.size() > 0)
-                        {
-                            ImGui::PushItemWidth(135.0f * config->MenuScale.value_or_default());
-
-                            auto currentName = StrFmt("FSR %s", state.ffxFGVersionNames[_ffxFGIndex]);
-                            if (ImGui::BeginCombo("FFX FG", currentName.c_str()))
-                            {
-                                for (int n = 0; n < state.ffxFGVersionIds.size(); n++)
-                                {
-                                    auto name = StrFmt("FSR %s", state.ffxFGVersionNames[n]);
-                                    if (ImGui::Selectable(name.c_str(), config->FfxFGIndex.value_or_default() == n))
-                                        _ffxFGIndex = n;
-                                }
-
-                                ImGui::EndCombo();
-                            }
-                            ImGui::PopItemWidth();
-
-                            ShowHelpMarker("List of FGs reported by FFX SDK");
-
-                            ImGui::SameLine(0.0f, 6.0f);
-
-                            if (ImGui::Button("Change FG") && _ffxFGIndex != config->FfxFGIndex.value_or_default())
-                            {
-                                config->FfxFGIndex = _ffxFGIndex;
-                                state.FGchanged = true;
-                                state.SCchanged = true;
-                            }
-                        }
 
                         bool fgActive = config->FGEnabled.value_or_default();
                         if (ImGui::Checkbox("Active##2", &fgActive))
