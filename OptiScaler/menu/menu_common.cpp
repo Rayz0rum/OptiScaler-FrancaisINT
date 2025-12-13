@@ -5698,15 +5698,8 @@ void MenuCommon::Init(HWND InHwnd, bool isUWP)
         }
         else
         {
-            ImFontConfig fontConfig;
-            fontConfig.OversampleH = 2;
-            fontConfig.OversampleV = 2;
-            fontConfig.PixelSnapH = true;
-
-            static const ImWchar ranges[] = { 0x0020, 0x00FF, 0 };
-
             io.FontDefault = atlas->AddFontFromMemoryCompressedBase85TTF(hack_compressed_compressed_data_base85,
-                                                                         fontSize, &fontConfig, ranges);
+                                                                         fontSize, &fontConfig, io.Fonts->GetGlyphRangesDefault());
         }
     }
 
